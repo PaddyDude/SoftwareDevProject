@@ -9,8 +9,38 @@
       protected $currentDept;
       protected $nextDept;
       protected $applicantId;
+      protected $fetchQuery;
 
       abstract protected function sign();
+      abstract protected function addToDb();
+
+      /*calls appropriate constructor*/
+      function __construct() {
+        $args = func_get_args();
+        $num = func_num_args();
+        if (method_exists($this, $fname='__construct'.$num)) {
+            call_user_func_array(array($this, $fname), $args);
+        }
+      }
+
+      /*Constructor for a new case*/
+      function __construct0(){
+
+	     }
+
+      /*constructor for fetching case data by id*/
+      function __construct1($id){
+        /*db variables located in const_db file*/
+        include $_SERVER['DOCUMENT_ROOT'].'/SoftwareProject/const_db.php';
+
+        $db = new mysqli($server, $username, $password, $dbname);
+        if (mysqli_connect_errno()) { echo "Could not connect to the database!"; exit; }
+
+        $result = $db->query($this->fetchQuery);
+        $row = $result->fetch_assoc();
+        
+        echo $row["Title"];
+      }
 
       function getCaseId() {
         return $this->caseId;
@@ -67,6 +97,21 @@
       function setApplicantId($userId) {
         $this->applicantId = $userId;
       }
+
+      function isValid() {
+        if(count($this->errorMessages==0)) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      function submit() {
+        if(isValid){
+          addToDb();
+        }
+      }
+
   }
 
 ?>

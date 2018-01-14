@@ -5,6 +5,11 @@
     //protected $;
     //protected $hasPoliceSig;
 
+    function __construct1($id) {
+      $this->fetchQuery = "SELECT * FROM FORM WHERE id = ".$id;
+      parent::__construct1($id);
+    }
+
     function approve() {
 
     }
@@ -14,6 +19,10 @@
     }
 
     function sign() {
+
+    }
+
+    function addToDb() {
 
     }
   }
