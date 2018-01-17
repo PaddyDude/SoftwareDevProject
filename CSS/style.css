@@ -1,0 +1,47 @@
+html,body{
+  height:100vh;
+  width:100vw;
+  margin: 0;
+  padding: 0;
+}
+
+#navBar {
+  height: 80px;
+  background-color: RGB(31,36,146);
+  color: RGB(159,214,247);
+}
+#navBarHeader {
+  margin-top:-30px;
+}
+
+#filterBar {
+  height:90px;
+
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.listElement {
+  background-color:white;
+  border-radius: 5px;
+
+}
+
+.listElementTitle {
+  margin-left: 180px;
+  font-weight:bold;
+}
+
+.statusForm {
+  margin-left:
+}
+.ruler {
+  margin-top:-50px;
+  color:orange;
+}
+
+.statusPending{
+  color:orange;
+}

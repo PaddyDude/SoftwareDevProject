@@ -8,7 +8,7 @@
     protected $cases;
     protected $query;
 
-/*constructor and set methods create the query*/
+    /*constructor and set methods create the query*/
     function __construct($dept) {
       $this->deptName = $dept;
       $this->query.= "Department = "."'".$this->deptName."'";

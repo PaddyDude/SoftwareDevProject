@@ -10,6 +10,7 @@
       protected $nextDept;
       protected $applicantId;
       protected $fetchQuery;
+      protected $type;
 
       abstract protected function sign();
       abstract protected function addToDb();
@@ -38,7 +39,7 @@
 
         $result = $db->query($this->fetchQuery);
         $row = $result->fetch_assoc();
-        
+
         echo $row["Title"];
       }
 
@@ -48,6 +49,14 @@
 
       function setCaseId($id) {
         $this->caseId = $id;
+      }
+
+      function getType() {
+        return $this->type;
+      }
+
+      function setCaseId($t) {
+        $this->type = $t;
       }
 
       function getStatus() {

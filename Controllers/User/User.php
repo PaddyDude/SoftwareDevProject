@@ -53,7 +53,7 @@
 
     function printInfo()
     {
-      echo "Name: ".$this->firstName." ====>>> age: ".$this->age."\n";
+
     }
   }
 
