@@ -1,4 +1,7 @@
+
 <?php
+  include $_SERVER['DOCUMENT_ROOT'].'/SoftwareProject/Templates/CaseFilters.php';
+
   abstract class Caselist {
 
     protected $startDate;
@@ -12,6 +15,10 @@
     function __construct($dept) {
       $this->deptName = $dept;
       $this->query.= "Department = "."'".$this->deptName."'";
+    }
+
+    function get($caseNo){
+      return $this->cases[$caseNo];
     }
 
     function getStartDate() {
@@ -50,20 +57,6 @@
       $this->query .= " and department = "."'".$this->department."'";
     }
 
-    function fetchCases() {
-      /*db variables located in const_db file*/
-      include $_SERVER['DOCUMENT_ROOT'].'/SoftwareProject/const_db.php';
-
-      $db = new mysqli($server, $username, $password, $dbname);
-      if (mysqli_connect_errno()) { echo "Could not connect to the database!"; exit; }
-
-      $result = $db->query($this->query);
-      $initsCount = $result->num_rows;
-
-      for ($i=0; $i<$initsCount; $i++){
-        $row = $result->fetch_assoc();
-        echo " ".$row["Title"]."\n";
-      }
-    }
+    abstract function fetchCases(); 
   }
  ?>

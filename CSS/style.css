@@ -6,7 +6,8 @@ html,body{
 }
 
 #navBar {
-  height: 80px;
+  width: 100vw;
+  height: 120px;
   background-color: RGB(31,36,146);
   color: RGB(159,214,247);
 }
@@ -30,12 +31,13 @@ html,body{
 }
 
 .listElementTitle {
-  margin-left: 180px;
   font-weight:bold;
+  position:relative;
+  left:100px;
 }
 
 .statusForm {
-  margin-left:
+
 }
 .ruler {
   margin-top:-50px;
@@ -44,4 +46,36 @@ html,body{
 
 .statusPending{
   color:orange;
+}
+
+#undrHdr {
+  padding-left:150px;
+  height:20px;
+  background-color:rgb(53,62,184);
+  margin-bottom:75px;
+}
+
+.manageTab {
+  height:35px;
+  margin-top: -17px;
+  border-top: 10px;
+  background-color: gray;
+  margin-right:-5px;
+  border-radius:0px;
+}
+
+#dashboardJumbotron {
+  padding-left: 0px;
+  padding-right: 0px;
+
+}
+
+#dashboardCaselistHdr {
+  margin-top:-40px;
+  margin-bottom:20px;
+}
+
+.seal {
+  margin-left:20px;
+  margin-top: 5px;
 }

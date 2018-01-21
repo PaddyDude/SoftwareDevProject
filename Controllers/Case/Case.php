@@ -2,7 +2,7 @@
 
   abstract class AbstractCase
   {
-      protected $caseId;
+       $caseId;
       protected $status;
       protected $submissionDate;
       protected $completionDate;
