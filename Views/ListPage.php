@@ -16,20 +16,15 @@
    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <script src='../Javascripts/createFormElements.js'></script>
-
+   <script>
+     $(document).ready(function(){
+         document.getElementById('navBarHeader').innerHTML = 'List Page';
+     });
+   </script>
  </head>
  <body>
 
-   <div id='navBar'>
-     <img class='seal' src="../Images/mamaroneckSeal.jpg" alt="Village Seal" height="100" width="100">
-     <h2  class='text-center' id='navBarHeader'>List Page</h2>
-     </div>
-     <div id='undrHdr' style='margin-bottom: 0px;'>
-       <div class='row' style='width:100%'>
-         <a class="btn btn-primary manageTab" href="#" role="button">Manage Forms</a>
-         <a class="btn btn-primary manageTab" href="#" role="button">Manage Feedback</a>
-       </div>
-    </div>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/SoftwareProject/Templates/navbar.html'; ?>
 
 <?php include $_SERVER['DOCUMENT_ROOT'].'/SoftwareProject/Templates/CaseFilters.php'; ?>
 
@@ -37,7 +32,7 @@
   <div class='row justify-content-center'>
     <span class='col-xs-12 col-centered listElementTitle listPageTitle'>Film Permit Application - Village Property</span>
     <div class='col-xs-8 col-centered listElement'>
-      <div class='row'>
+      <div class='row' style='width:100'>
         <div class='col-xs-12'>Status: <span class='statusPending'>Pending</span></div>
 
         <div class='col-xs-12'>Submitted:<span>11/2/2017<span></div>

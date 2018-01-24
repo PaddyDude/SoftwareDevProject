@@ -12,9 +12,13 @@
     protected $query;
 
     /*constructor and set methods create the query*/
-    function __construct($dept) {
+    function __construct() {
+
+    }
+
+    function setDepartment($dept) {
       $this->deptName = $dept;
-      $this->query.= "Department = "."'".$this->deptName."'";
+      $this->query.= "Department Like "."'".$this->deptName."'";
     }
 
     function get($caseNo){
@@ -52,11 +56,6 @@
       return $this->deptName;
     }
 
-    function setDepartment($dept) {
-      $this->deptName = $dept;
-      $this->query .= " and department = "."'".$this->department."'";
-    }
-
-    abstract function fetchCases(); 
+    abstract function fetchCases();
   }
  ?>

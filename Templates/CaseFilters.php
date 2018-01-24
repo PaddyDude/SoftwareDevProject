@@ -41,6 +41,6 @@
   </div>
 </form>
 </div>
-<div class='row'>
+<div class='row' style='width:100%;'>
 <hr/>
 </div>

@@ -27,7 +27,6 @@ html,body{
 .listElement {
   background-color:white;
   border-radius: 5px;
-
 }
 
 .listElementTitle {
@@ -67,6 +66,7 @@ html,body{
 #dashboardJumbotron {
   padding-left: 0px;
   padding-right: 0px;
+  margin-top: 50px;
 
 }
 
@@ -78,4 +78,9 @@ html,body{
 .seal {
   margin-left:20px;
   margin-top: 5px;
+}
+
+.elementRow {
+  color:green;
+  margin-bottom: 40px;
 }
