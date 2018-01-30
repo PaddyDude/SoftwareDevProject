@@ -1,24 +1,24 @@
 
 <?php
-  include $_SERVER['DOCUMENT_ROOT'].'/SoftwareProject/Templates/CaseFilters.php';
+  include '../Templates/CaseFilters.php';
 
   abstract class Caselist {
 
-    protected $startDate;
-    protected $completionDate;
+    protected $startDate = '2012-01-01';
+    protected $completionDate = '2012-01-31';
     protected $applicantEmail;
+    protected $status;
     protected $deptName;
     protected $cases;
     protected $query;
 
     /*constructor and set methods create the query*/
     function __construct() {
-
     }
 
     function setDepartment($dept) {
       $this->deptName = $dept;
-      $this->query.= "Department Like "."'".$this->deptName."'";
+      $this->query.= "and department Like "."'".$this->deptName."'";
     }
 
     function get($caseNo){
@@ -31,7 +31,7 @@
 
     function setStartDate($date) {
       $this->startDate = $date;
-      $this->query.=" and Start Date = "."'".$this->startDate."'";
+
     }
 
     function getCompletionDate() {
@@ -40,7 +40,6 @@
 
     function setCompletionDate($date) {
       $this->completionDate = $date;
-      $this->query.=" and Completion Date = "."'".$this->completionDate."'";
     }
 
     function getApplicantEmail(){
@@ -49,13 +48,12 @@
 
     function setApplicantEmail($email) {
       $this->applicantEmail = $email;
-      $this->query .= " and applicantEmail = "."'".$this->applicantEmail."'";
+      $this->query .= " and employee_id = (Select employee_id FROM employee WHERE user_id = (Select user_id FROM users Where email = "."'".$this->applicantEmail."'))";
     }
-
     function getDepartment(){
       return $this->deptName;
     }
 
-    abstract function fetchCases();
+    //abstract function fetchCases();
   }
  ?>

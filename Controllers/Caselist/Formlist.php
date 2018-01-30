@@ -1,10 +1,11 @@
 <?php
   include 'Caselist.php';
-  class formList extends Caselist {
+  class FormList extends Caselist {
 
-    function __construct($dept) {
-      $this->query = "SELECT * FROM FORM WHERE ";
-      parent::__construct($dept);
+    function __construct() {
+      $this->query = "Select * FROM film_permit_app WHERE submitted >= "."'".$this->startDate."'"." and completed >= "."'".$this->completionDate."'";
+      //"SELECT * FROM film_permit_app, employee, applicant WHERE submitted= "."'".$this->deptName."'"."
+      //parent::__construct($dept);
     }
 
     function fetchCases () {
@@ -18,10 +19,13 @@
       $initsCount = $result->num_rows;
 
       for ($i=0; $i<$initsCount; $i++){
-      /*$case = new Case();
-        $row = $result->fetch_assoc();
-        $case->setCaseId($row["id"]);
-        echo $case->caseId;*/
+          $row = $result->fetch_assoc();
+
+          echo $row['status'];
+          /*instantiates new permit and adds queried data*/
+        /*  $permit = new userCase();
+          $permit->submissionDate = $row['submitted'];
+          $permit->status = $row['status'];*/
       }
     }
   }

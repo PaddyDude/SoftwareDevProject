@@ -1,19 +1,19 @@
 <?php
 
-  abstract class AbstractCase
+ class userCase
   {
        $caseId;
-      protected $status;
-      protected $submissionDate;
-      protected $completionDate;
-      protected $currentDept;
-      protected $nextDept;
-      protected $applicantId;
-      protected $fetchQuery;
-      protected $type;
+       $status;
+       $submissionDate;
+       $completionDate;
+       $currentDept;
+       $nextDept;
+       $applicantId;
+       $fetchQuery;
+       $type;
 
-      abstract protected function sign();
-      abstract protected function addToDb();
+    /*  abstract protected function sign();
+      abstract protected function addToDb();*/
 
       /*calls appropriate constructor*/
       function __construct() {
@@ -55,7 +55,7 @@
         return $this->type;
       }
 
-      function setCaseId($t) {
+      function setCaseType($t) {
         $this->type = $t;
       }
 

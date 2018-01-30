@@ -20,14 +20,14 @@
   <body>
     <div>
 
-      <?php include $_SERVER['DOCUMENT_ROOT'].'/SoftwareProject/Templates/navbar.html'; ?>
+      <?php include '../Templates/navbar.html'; ?>
 
       <div class="container">
         <?php
           if(isset($_GET['manageFeedback'])) {
-            include $_SERVER['DOCUMENT_ROOT'].'/SoftwareProject/Templates/manageFeedbackDashboard.php';
+            include '../Templates/manageFeedbackDashboard.php';
           } else {
-            include $_SERVER['DOCUMENT_ROOT'].'/SoftwareProject/Templates/manageFormsDashboard.php';
+            include '../Templates/manageFormsDashboard.php';
           }
           ?>
       </div>

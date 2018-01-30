@@ -1,6 +1,6 @@
 
 <div id='filterBar' style='width:100%;'>
-<form>
+<form action='../Routes/CaseListRoute.php'>
   <div class='form-row'>
 
     <div class='col-md-2'>

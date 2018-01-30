@@ -24,9 +24,9 @@
  </head>
  <body>
 
-<?php include $_SERVER['DOCUMENT_ROOT'].'/SoftwareProject/Templates/navbar.html'; ?>
+<?php include '../Templates/navbar.html'; ?>
 
-<?php include $_SERVER['DOCUMENT_ROOT'].'/SoftwareProject/Templates/CaseFilters.php'; ?>
+<?php include '../Templates/CaseFilters.php'; ?>
 
 <div class='container'>
   <div class='row justify-content-center'>
