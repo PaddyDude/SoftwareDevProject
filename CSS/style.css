@@ -47,6 +47,15 @@ html,body{
   color:orange;
 }
 
+.statusApproved{
+  color:green;
+}
+
+.statusRejected{
+  color:red;
+}
+
+
 #undrHdr {
   padding-left:150px;
   height:20px;

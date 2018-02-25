@@ -1,16 +1,17 @@
 <?php
 
- class userCase
+ abstract class userCase
   {
-       $caseId;
-       $status;
-       $submissionDate;
-       $completionDate;
-       $currentDept;
-       $nextDept;
-       $applicantId;
-       $fetchQuery;
-       $type;
+       public $caseId;
+       public $status;
+       public $submissionDate;
+       public $completionDate;
+       public $currentDept;
+       public $nextDept;
+       public $applicantId;
+      // public $fetchQuery;
+       public $type;
+       public $hasVillage;
 
     /*  abstract protected function sign();
       abstract protected function addToDb();*/
@@ -32,7 +33,7 @@
       /*constructor for fetching case data by id*/
       function __construct1($id){
         /*db variables located in const_db file*/
-        include $'../const_db.php';
+        include '../const_db.php';
 
         $db = new mysqli($server, $username, $password, $dbname);
         if (mysqli_connect_errno()) { echo "Could not connect to the database!"; exit; }

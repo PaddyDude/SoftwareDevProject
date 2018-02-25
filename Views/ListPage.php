@@ -1,7 +1,43 @@
 <?php
-    //include 'FormList.php';
-    //$dashboard = new CaseList();
-  //  $caseList = new CaseList();
+  include '../Models/CaseList/FormList.php';
+
+  $myCaseList = new Formlist();
+
+  if(isset($_GET['statusTextBox'])) {
+
+    $myCaseList->setStatus($_GET['statusTextBox']);
+  }
+
+  if(isset($_GET['email'])) {
+    $myCaseList->setApplicantEmail($_GET['email']);
+  }
+  if(isset($_GET['startDate'])) {
+    $myCaseList->setStartDate($_GET['startDate']);
+  }
+  if(isset($_GET['completionDate'])) {
+    $myCaseList->setCompletionDate($_GET['completionDate']);
+  }
+  if(isset($_GET['caseId'])) {
+    if($_GET['caseId'] != '' ) {
+      $myCaseList->setCaseId($_GET['caseId']);
+    }
+  }
+  if(isset($_GET['typeTextBox'])) {
+    $myCaseList->setCaseType($_GET['typeTextBox']);
+  }
+  if(isset($_GET['statusDropDown'])) {
+    $myCaseList->setStatus($_GET['statusDropDown']);
+  }
+  if(isset($_GET['submittedBefore'])) {
+    $myCaseList->setBefore($_GET['submittedBefore']);
+  }
+  if(isset($_GET['submittedAfter'])) {
+    $myCaseList->setAfter($_GET['submittedAfter']);
+  }
+
+
+  $myCaseList->fetchCases();
+//  json_encode($myCaseList->cases);
  ?>
 
  <!DOCTYPE html>
@@ -15,11 +51,31 @@
    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js'></script>
    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <script src='../Javascripts/createFormElements.js'></script>
+
    <script>
      $(document).ready(function(){
          document.getElementById('navBarHeader').innerHTML = 'List Page';
-     });
+
+         /*$.post("../Routes/CaseListRoute.php", function(data, status){
+             alert("Data: " + data + "\nStatus: " + status);
+         });*/
+
+    /*  $("#singlebutton").click(function(){
+
+      $.ajax({
+      url: '../Routes/CaseListRoute.php',
+      type: 'GET',
+      error: function(xhr, status, error) {
+          alert("Error Getting Data");
+        //  alert(xhr.responseText);
+      },
+      success: function(results) {
+          var objJson = JSON.parse(results);
+
+      }
+  });
+});*/
+      });
    </script>
  </head>
  <body>
@@ -29,35 +85,7 @@
 <?php include '../Templates/CaseFilters.php'; ?>
 
 <div class='container'>
-  <div class='row justify-content-center'>
-    <span class='col-xs-12 col-centered listElementTitle listPageTitle'>Film Permit Application - Village Property</span>
-    <div class='col-xs-8 col-centered listElement'>
-      <div class='row' style='width:100'>
-        <div class='col-xs-12'>Status: <span class='statusPending'>Pending</span></div>
-
-        <div class='col-xs-12'>Submitted:<span>11/2/2017<span></div>
-
-        <div class='col-xs-11'>Approval From Police Chief</div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-        </div>
-
-        <div class='col-xs-11'>Approval From Fire Chief</div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-        </div>
-
-        <div class='col-xs-11'>Approval From Village Manager</div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-        </div>
-
-        <div class='col-xs-12'><a href="">Review</a></div>
-
-      </div>
-
-    </div>
-  </div>
+  <?php include "../Templates/FormsListTemplate.php" ?>
 </div>
 
  </body>

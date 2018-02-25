@@ -1,9 +1,9 @@
 <?php
 	$siteURL = 'http://127.0.0.1/SoftwareProject/index.php';
-	$server = '127.0.0.1';
-	$username = 'root';
-	$password = 'pddwtfhw';
-	$dbname = 'SoftwareDevProject';
+	$server = 'den1.mysql6.gear.host';
+	$username = 'softwareproject1';
+	$password = 'testDB123!';
+	$dbname = 'softwareproject1';
 	$dbPrefix = '';
 	$siteDir = dirname(__FILE__);
 ?>

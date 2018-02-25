@@ -1,0 +1,12 @@
+legend{
+  text-align: left;
+  font-weight: bold;
+  border-bottom: :2px;
+  border-color: black;
+  color:black;
+  font-size:100%;
+}
+
+input[type=submit] {
+    
+}
