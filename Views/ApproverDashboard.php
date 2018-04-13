@@ -1,3 +1,7 @@
+<?php
+
+
+ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -20,12 +24,22 @@
   <body>
     <div>
 
-      <?php include '../Templates/navbar.html'; ?>
+
+      <?php
+      if(isset($_GET['applicant'])) {
+          include '../Templates/applicantNavbar.html';
+      } else {
+        include '../Templates/navbar.html';
+      }
+
+     ?>
 
       <div class="container">
         <?php
           if(isset($_GET['manageFeedback'])) {
             include '../Templates/manageFeedbackDashboard.php';
+          } else if(isset($_GET['applicant'])){
+            include '../Templates/ApplicantFormDashboard.php';
           } else {
             include '../Templates/manageFormsDashboard.php';
           }

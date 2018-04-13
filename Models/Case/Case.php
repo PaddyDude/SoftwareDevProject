@@ -12,6 +12,7 @@
       // public $fetchQuery;
        public $type;
        public $hasVillage;
+       public $pathToForm;
 
     /*  abstract protected function sign();
       abstract protected function addToDb();*/

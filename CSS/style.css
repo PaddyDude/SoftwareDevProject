@@ -93,3 +93,19 @@ html,body{
   color:green;
   margin-bottom: 40px;
 }
+
+.list-group-item {
+  background-color:rgb(53,62,184);
+  color: white;
+}
+
+.list-group {
+  color: white;
+}
+
+.listLink {
+  color:white;
+}
+.dropdown-item {
+  width: 400px;
+}

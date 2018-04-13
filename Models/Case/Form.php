@@ -6,6 +6,7 @@
 
     public $hasFire;
     public $hasPolice;
+    public $hasDoctor;
 
   }
 
