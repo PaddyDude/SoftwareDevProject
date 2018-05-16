@@ -1,6 +1,6 @@
 <?php
 
- abstract class userCase
+ abstract class UserCase
   {
        public $caseId;
        public $status;
@@ -34,7 +34,7 @@
       /*constructor for fetching case data by id*/
       function __construct1($id){
         /*db variables located in const_db file*/
-        include '../const_db.php';
+        include 'const_db.php';
 
         $db = new mysqli($server, $username, $password, $dbname);
         if (mysqli_connect_errno()) { echo "Could not connect to the database!"; exit; }

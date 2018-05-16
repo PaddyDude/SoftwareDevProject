@@ -1,6 +1,6 @@
 <?php
   include 'Caselist.php';
-  include '../Models/Case/Complaint.php';
+  include 'Models/Case/Complaint.php';
   class ComplaintList extends Caselist {
 
     private $query1;
@@ -20,7 +20,7 @@
     function fetchCases () {
 
       /*db variables located in const_db file*/
-      include '../const_db.php';
+      include 'const_db.php';
       //echo $this->query;
       //echo $this->query;
       $db = new mysqli($server, $username, $password, $dbname);

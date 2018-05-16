@@ -12,9 +12,10 @@
     public $cases;
     protected $selectFrom;
     public $query;
-    protected $caseIdj;
+    protected $searchCaseId;
     public $errors;
     protected $applicantQuery;
+    public $type;
 
     abstract function updateQuery();
 
