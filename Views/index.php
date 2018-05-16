@@ -6,7 +6,7 @@
     </head>
     <body>
         <?php
-         include_once("../Controllers/UserController.php");
+         include_once("Controllers/UserController.php");
 
         $userController = new UserController();
 

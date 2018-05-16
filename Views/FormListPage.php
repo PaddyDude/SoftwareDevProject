@@ -1,9 +1,16 @@
 <?php
-  include '../Models/CaseList/FormList.php';
+  include 'Models/CaseList/FormList.php';
 
-  $thisCaseList = new Formlist();
+  session_start();
+  if (!isset($_SESSION['login_user']))
+  {
+      header("Location: index.php");
+      die();
+  }
+
+    $thisCaseList = new Formlist();
   //set to session variable
-  $thisCaseList->setUserDepartment('Police');
+  $thisCaseList->setUserDepartment('Fire');
 
   $applicantType = 1;
   //$applicantType is user
@@ -46,8 +53,11 @@
     $thisCaseList->setAfter($_GET['submittedAfter']);
   }
 
-  $myCases = $thisCaseList->fetchCases($false);
+  $myCases = $thisCaseList->fetchCases(false);
 //  json_encode($myCaseList->cases);
+$url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+$urlParts = explode('/', str_ireplace(array('http://', 'https://'), '', $url));
+$newUrl = 'http://'.$_SERVER['HTTP_HOST']."/".$urlParts[1]."/index.php?controller=UserController&action=dashboard";
  ?>
 
  <!DOCTYPE html>
@@ -56,15 +66,16 @@
  <meta charset='utf-8'>
    <meta name='viewport' content='width=device-width, initial-scale=1'>
    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-   <link rel ='stylesheet' href='../CSS/style.css'>
-   <link rel ='stylesheet' href='../CSS/CaseList.css'>
+   <link rel ='stylesheet' href='CSS/style.css'>
+   <link rel ='stylesheet' href='CSS/CaseList.css'>
    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js'></script>
    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
    <script>
      $(document).ready(function(){
-         document.getElementById('navBarHeader').innerHTML = 'List Page';
+
+        // document.getElementById('navBarHeader').innerHTML = 'List Page';
             var today = new Date();
             var dd = today.getDate()+1;
             var mm = today.getMonth()+1; //January is 0!
@@ -95,12 +106,12 @@
  </head>
  <body>
 
-<?php include '../Templates/navbar.html'; ?>
+<?php include 'Views/includes/adminheader.php'; ?>
 
-<?php include '../Templates/CaseFilters.php'; ?>
+<?php include 'Templates/CaseFilters.php'; ?>
 
 <div class='container'>
-  <?php include "../Templates/FormsListTemplate.php" ?>
+  <?php include "Templates/FormsListTemplate.php" ?>
 </div>
 
  </body>

@@ -1,0 +1,86 @@
+html,body{
+  height:100vh;
+  width:100vw;
+  margin: 0;
+  padding: 0;
+}
+
+#navBar {
+  width: 100vw;
+  height: 120px;
+  background-color: RGB(31,36,146);
+  color: RGB(159,214,247);
+}
+#navBarHeader {
+  margin-top:-30px;
+}
+
+#filterBar {
+  height:90px;
+
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.listElement {
+  background-color:white;
+  border-radius: 5px;
+}
+
+.listElementTitle {
+  font-weight:bold;
+  position:relative;
+  left:100px;
+}
+
+.statusForm {
+
+}
+.ruler {
+  margin-top:-50px;
+  color:orange;
+}
+
+.statusPending{
+  color:orange;
+}
+
+#undrHdr {
+  padding-left:150px;
+  height:20px;
+  background-color:rgb(53,62,184);
+  margin-bottom:75px;
+}
+
+.manageTab {
+  height:35px;
+  margin-top: -17px;
+  border-top: 10px;
+  background-color: gray;
+  margin-right:-5px;
+  border-radius:0px;
+}
+
+#dashboardJumbotron {
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: 50px;
+
+}
+
+#dashboardCaselistHdr {
+  margin-top:-40px;
+  margin-bottom:20px;
+}
+
+.seal {
+  margin-left:20px;
+  margin-top: 5px;
+}
+
+.elementRow {
+  color:green;
+  margin-bottom: 40px;
+}

@@ -5,29 +5,22 @@
  <meta charset='utf-8'>
    <meta name='viewport' content='width=device-width, initial-scale=1'>
    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-   <link rel ='stylesheet' href='../CSS/style.css'>
-   <link rel ='stylesheet' href='../CSS/CaseList.css'>
-   <link rel ='stylesheet' href='../CSS/permit.css'>
+   <link rel ='stylesheet' href='Views/CSS/themestyle.css'>
+   <link rel ='stylesheet' href='CSS/CaseList.css'>
+   <link rel ='stylesheet' href='CSS/permit.css'>
    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js'></script>
    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <script src='../Javascripts/createFormElements.js'></script>
+   <script src='Javascripts/createFormElements.js'></script>
 
    <style>table, th, td {border: 2px solid black;}</style>
 
  </head>
   <body>
 
-    <div id='navBar'>
-      <img class='seal' src="../Images/mamaroneckSeal.jpg" alt="Village Seal" height="100" width="100">
-      <h2  class='text-center' id='navBarHeader'>Application For Parking Permit</h2>
-      </div>
-      <div id='undrHdr' style='margin-bottom: 0px;'>
-        <div class='row' style='width:100%'>
-          <a class="btn btn-primary manageTab" href="#" role="button">Manage Forms</a>
-          <a class="btn btn-primary manageTab" href="#" role="button">Manage Feedback</a>
-        </div>
-     </div>
+    <?php include("includes/header.php"); 
+ ?>
+
 
 <div class="container">
   <div id='formIntro' class="jumbotron col-md-12 col-centered">
@@ -174,26 +167,26 @@
     </div>
 
    <div id='userInfo' class="jumbotron col-md-12 col-centered">
-     <form action="../PDF_Actions/action_parking_permit.php" method="post">
+     <form action="index.php?controller=UserController&action=actionparking" method="post" enctype="multipart/form-data">
        <fieldset>
          <legend>Part 1 INFORMATION ABOUT PERSON WITH DISABILITY</legend>
-         First Name: <input type="text" name="firstname">
-         Last Name: <input type="text" name="lastname">
-         M.I: <input type="text" name="m.i"><br>
-         Phone Number: <input type="text" name="phonenumber">
-         D.O.B: <input type="text" name="birth_date">
-         Gender: <input type="radio" name="gender_male" value="male"> Male
-         <input type="radio" name="gender_female" value="female"> Female <br><br>
+         First Name: <input type="text" maxlength="30" required name="firstname" required placeholder="John" pattern="[A-Za-z]+" title="First Name can contain only alphabtets such as Tom, tom.">
+         Last Name: <input type="text" maxlength="30" required name="lastname" required placeholder="Smith" pattern="[A-Za-z]+" title="First Name can contain only alphabtets such as Tom, tom.">
+         M.I: <input type="text" name="m.i" maxlength="1" required placeholder="J" pattern="[A-Za-z]+" title="A Letter."><br>
+         Phone Number: <input type="text" name="phonenumber" required placeholder="123-456-7890" pattern="\d{3}[\-]\d{3}[\-]\d{4}" title="Format should be like 111-111-1111">
+         D.O.B: <input type="date" name="birth_date" required>
+         Gender: <input type="radio" name="gender" value="male"> Male
+         <input type="radio" name="gender" value="female"> Female <br><br>
 
-         Do you have license plates for persons with disabilities?: <input type="radio" name="plates_yes" value="yes"> Yes
-         <input type="radio" name="plates_no" value="no"> No <br><br>
-         If yes - my license plate number is: <input type="text" name="plate_num"><br>
+         Do you have license plates for persons with disabilities?: <input type="radio" name="plates" value="yes"> Yes
+         <input type="radio" name="plates" value="no"> No <br><br>
+         If yes - my license plate number is: <input type="text" name="plate_num" placeholder="abv49qt"pattern="[a-zA-Z0-9]+" title="No special characters, only numbers and alphabtets"><br>
 
-         <p>NYS Resident: Attach a copy of your driver license or non-driver ID.</p>
-         If you had a New York State Permit - enter number: <input type="text" name="nys_permit_num"><br><br>
+         Attach a copy of your driver license or non-driver ID: <input type="file" name="License_picture" accept="image/*">
+         If you had a New York State Permit - enter number: <input type="text" maxlength="9" name="nys_permit_num" placeholder="123456789" pattern="[0-9]+" title="9 digits"><br><br>
 
-         <p>Electronic Signature</p>
-         <textarea maxlength="100" rows="5" cols="30">Signature</textarea><br><br>
+         Electronic Signature: <input type="file" name="Signature_picture" accept="image/*">
+         <input type="checkbox" name="verify_signature" value="yes" required> I legally verify that the uploaded file is my signature.<br><br>
       </fieldset>
 
       <fieldset>
@@ -214,15 +207,15 @@
               wheelchair or walker. IMPORTANT: Temporary permits are
                issued for six months or less regardless of expected recovery date.<br>
 
-          Expected Recovery Date: <input type="text" name="rec_date">
-          Diagnosis: <input type="text" name="diagnosis"><br><br>
-          What assistance device is needed: <input type="text" name="assist_device"><br><br>
+          Expected Recovery Date: <input type="date" name="rec_date">
+          Diagnosis: <input type="text" name="diagnosis" maxlength="30" placeholder="diagnosis" pattern="[a-zA-Z]+" title="Only alphabtets. Max 30 Characters"><br><br>
+          What assistance device is needed: <input type="text" name="assist_device" maxlength="30" placeholder="device" pattern="[a-zA-Z]+" title="Only alphabtets. Max 30 Characters"><br><br>
 
           <input type="checkbox" name="sev_disability" value="yes"> PERMANENT DISABILITY:
            A “severely disabled” person is any person with one or more of
             the PERMANENT impairments, disabilities or conditions listed below,
              which limit mobility.<br>
-          Diagnosis: <input type="text" name="diagnosis2"><br><br>
+          Diagnosis: <input type="text" name="diagnosis2" maxlength="30" placeholder="diagnosis" pattern="[a-zA-Z]+" title="Only alphabtets. Max 30 Characters"><br><br>
 
           <p>Please check the condistions that apply:</p>
           <input type="checkbox" name="con1" value="yes"> Uses portable oxygen<br>
@@ -236,15 +229,10 @@
           <input type="checkbox" name="con9" value="yes"> Has a physical or mental impairment or condition not listed above which constitutes an equal degree of disability, and which imposes unusual hardship in the use of public transportation and prevents the person from getting around without great difficulty.<br><br>
 
           <p>EXPLAIN BELOW HOW THIS DISABILITY LIMITS FUNCTIONAL MOBILITY:</p>
-          <textarea maxlength="100" rows="5" cols="30">Text...</textarea><br><br>
+          <textarea maxlength="300" rows="5" cols="30" placeholder="Reasons" pattern="[a-zA-Z]+" title="Only alphabtets. Max 300 Characters"></textarea><br><br>
 
           <p>This form must be sent to your MD/DO/DPM/NP/PA/OD for electronic signature.</p>
-          MD Email: <input type="text" name="email_md"><br>
-          DO Email: <input type="text" name="email_do"><br>
-          DPM Email: <input type="text" name="email_dmp"><br>
-          NP Email: <input type="text" name="email_np"><br>
-          PA Email: <input type="text" name="email_pa"><br>
-          OD Email: <input type="text" name="email_od"><br><br>
+          Doctor's Email: <input type="email" name="email_doctor" placeholder="blah@gmail.com"><br><br>
 
           <input type="submit" value="submit"><br><br>
      </fieldset>

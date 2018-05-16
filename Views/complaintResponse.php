@@ -30,7 +30,7 @@
  <body>
 
 <div id='navBar'>
-  <img class='seal' src="../images/mamaroneckSeal.jpg" alt="Village Seal" height="100" width="100">
+  <img class='seal' src="images/mamaroneckSeal.jpg" alt="Village Seal" height="100" width="100">
   <h2  class='text-center' id='navBarHeader'></h2>
 </div>
 <div id='undrHdr'>

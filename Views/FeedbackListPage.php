@@ -1,5 +1,5 @@
 <?php
-include '../Models/CaseList/ComplaintList.php';
+include 'Models/CaseList/ComplaintList.php';
 $complaintList = new ComplaintList();
 $complaintList->setStatus('Open');
 $complaintList->setUserDepartment('Fire');
@@ -13,9 +13,9 @@ $complaintList->fetchCases();
  <meta charset='utf-8'>
    <meta name='viewport' content='width=device-width, initial-scale=1'>
    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-   <link rel ='stylesheet' href='../CSS/style.css'>
-   <link rel = 'stylesheet' href='../CSS/CaseList.css'>
-   <link rel = 'stylesheet' href='../CSS/dashboard.css'
+   <link rel ='stylesheet' href='CSS/style.css'>
+   <link rel = 'stylesheet' href='CSS/CaseList.css'>
+   <link rel = 'stylesheet' href='CSS/dashboard.css'
    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js'></script>
    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -55,15 +55,15 @@ $complaintList->fetchCases();
  </head>
  <body>
 
-<?php include '../Templates/navbar.html'; ?>
+<?php include 'Templates/navbar.html'; ?>
 
-<?php include '../Templates/CaseFilters.php'; ?>
+<?php include 'Templates/CaseFilters.php'; ?>
 
 <div class="jumbotron col-md-8 col-centered" id='dashboardJumbotron'>
   <div class='row'>
     <h2 class='col-xs-10'id='dashboardCaselistHdr'>Recently Submitted Forms</h2>
   </div>
-  <?php include "../Templates/FeedbackListTemplate.php" ?>
+  <?php include "Templates/FeedbackListTemplate.php" ?>
 </div>
 
  </body>

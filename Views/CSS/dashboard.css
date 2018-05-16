@@ -1,0 +1,7 @@
+textarea {
+    resize: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(218,213,241);
+}
