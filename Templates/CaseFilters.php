@@ -1,20 +1,14 @@
 <?php
-    if(isset($_GET['feedbackList'])) {
-      $listAction = '../Views/FeedbackListPage.php?';
-    } else {
-      $listAction = '../Views/FormListPage.php';
-    }
+
+      $listAction = 'index.php?controller=UserController&action=listPage';
+    
   ?>
 
-<div id='filterBar' style='width:100%;'>
-<form id='caseListFilterForm' name='caseListFilterForm' action='<?php echo $listAction.'?feedbackList' ?>' method='get'>
-  <div class='form-row' id='filterContainer'>
-
-    <div class='col-md-2' id='caseIdContainer'>
-      <label for='f'>Case Id</label>
-      <input type='text' class='form-control' id='caseIdInput' name='caseId' placeholder='' value=''>
-    </div>
-
+<div id='filterBar' style=''>
+<form id='caseListFilterForm' name='caseListFilterForm' action='' method='get'>
+  <input name="controller" type="hidden" value="UserController">
+  <input name="action" type="hidden" value="listPage">
+  <div class='form-row' id='filterContainer' style='margin-left: 15%'>
     <div class='col-md-2'>
       <label for='validationDefault01'>Applicant Email</label>
       <input type='text' class='form-control' id='emailTextBox' name='email' placeholder='' value=''>

@@ -1,5 +1,5 @@
 <?php
-  include '../Models/CaseList/ComplaintList.php';
+  include 'Models/CaseList/ComplaintList.php';
 
   $complaintList = new ComplaintList();
   $complaintList->setUserDepartment('Fire');
